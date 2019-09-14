@@ -1,0 +1,1 @@
+- [Example of a memory leak in C++?What is a memory leak in C++?](https://www.programmerinterview.com/c-cplusplus/what-is-a-memory-leak-in-c/)
