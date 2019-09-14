@@ -1,0 +1,16 @@
+cmake_minimum_required(VERSION 3.14)
+set(CMAKE_CXX_STANDARD 17)
+
+project(CMakeExtProj)
+add_executable(${PROJECT_NAME} FactorialTest.cpp)
+
+include(ExternalProject)
+ExternalProject_Add(googletest URL https://github.com/google/googletest/archive/release-1.8.1.zip)
+add_dependencies(${PROJECT_NAME} googletest)
+ExternalProject_Get_Property(googletest SOURCE_DIR BINARY_DIR)
+target_include_directories(${PROJECT_NAME} PRIVATE ${SOURCE_DIR}/googletest/include})
+target_include_directories(${PROJECT_NAME} PRIVATE ${SOURCE_DIR}/googlemock/include})
+target_link_libraries(${PROJECT_NAME} ${BINARY_DIR}/googlemock/gtest/libgtest.a)
+target_link_libraries(${PROJECT_NAME} ${BINARY_DIR}/googlemock/gtest/libgtest_main.a)
+target_link_libraries(${PROJECT_NAME} ${BINARY_DIR}/googlemock/libgmock.a)
+target_link_libraries(${PROJECT_NAME} ${BINARY_DIR}/googlemock/libgmock_main.a)

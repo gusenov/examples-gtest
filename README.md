@@ -1,2 +1,3 @@
 - [Подключение gtest через параметры компилятора clang++](simple-test-program)
 - [Google Test + Google LeakSanitizer](mem-leak)
+- [Подключение gtest в CMake-проекте](cmake-ext-proj)
